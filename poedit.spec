@@ -2,7 +2,7 @@ Summary:	Gettext catalogs editor
 Summary(pl):	Edytor katalogów gettexta
 Name:		poedit
 Version:	1.1.8
-Release:	1
+Release:	2
 License:	BSD
 Group:		Applications/Editors
 Source0:	ftp://ftp.sourceforge.net/pub/sourceforge/%{name}/%{name}-%{version}.tar.bz2
@@ -62,14 +62,12 @@ install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/Development
 install %{SOURCE2} $RPM_BUILD_ROOT%{_pixmapsdir}
 install src/appicon.xpm $RPM_BUILD_ROOT%{_datadir}/icons/poedit.xpm
 
-gzip -9nf NEWS LICENSE README AUTHORS
-
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc *.gz docs/*.html docs/img
+%doc NEWS LICENSE README AUTHORS docs/*.html docs/img
 %attr(755,root,root) %{_bindir}/poedit
 %{_datadir}/poedit
 %{_datadir}/icons/poedit.xpm
