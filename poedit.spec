@@ -49,7 +49,7 @@ uaktualnianie istniej±cych z plików ¼ród³owych przez jedno klikniêcie.
 %configure \
 	--disable-transmem \
 	--with-wx-config=wxgtk2u-2.4-config
-%{__make} EXTRADIR="" gizmoslib="-lwx_gtk2u_gizmos-2.4" xrclib="-lwx_gtk2u_xrc-2.4" expatlib="-lexpat" 
+%{__make} EXTRADIR="" gizmoslib="-lwx_gtk2u_gizmos-2.4" xrclib="-lwx_gtk2u_xrc-2.4" expatlib="-lexpat"
 
 %install
 rm -rf $RPM_BUILD_ROOT
