@@ -11,6 +11,7 @@ Source0:	http://belnet.dl.sourceforge.net/sourceforge/%{name}/%{name}-%{version}
 # Source0-md5:	3fcf4a3b6a8b11f0b7d28fa180efdf7f
 Source1:	%{name}.desktop
 Source2:	%{name}.png
+Patch0:		%{name}-system_libs.patch
 URL:		http://poedit.sourceforge.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -41,6 +42,7 @@ klikniêcie.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 %{__aclocal} -I admin
