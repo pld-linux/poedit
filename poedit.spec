@@ -7,7 +7,7 @@ Version:	1.2.3
 Release:	0.1
 License:	BSD
 Group:		Applications/Editors
-Source0:	http://dl.sf.net/%{name}/%{name}-%{version}.tar.bz2
+Source0:	http://dl.sourceforge.net/%{name}/%{name}-%{version}.tar.bz2
 # Source0-md5:	625227ea0627a3206e05e9075d5c6ca6
 Source1:	%{name}.desktop
 Source2:	%{name}.png
