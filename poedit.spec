@@ -5,7 +5,7 @@ Version:	1.1.8
 Release:	1
 License:	BSD
 Group:		Applications/Editors
-Source0:	http://prdownloads.sourceforge.net/%{name}/%{name}-%{version}.tar.bz2
+Source0:	ftp://ftp.sourceforge.net/pub/sourceforge/%{name}/%{name}-%{version}.tar.bz2
 Source1:	%{name}.desktop
 Source2:	%{name}.png
 Patch0:		%{name}-wxwin-2.3.1.patch
