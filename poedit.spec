@@ -3,7 +3,7 @@ Summary(pl):	Edytor katalogów gettexta
 Name:		poedit
 Version:	1.1.5
 Release:	3
-License:	BSD license
+License:	BSD
 Group:		Applications/Editors
 Source0:	http://prdownloads.sourceforge.net/%{name}/%{name}-%{version}.tar.bz2
 Source1:	%{name}.desktop
