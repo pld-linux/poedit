@@ -32,7 +32,7 @@ code by single click.
 
 %description -l pl
 poEdit jest wieloplatformowym edytorem katalogów gettexta (plików
-.po). U¿ywa toolkitu wxWindows, wiêc mo¿e dzia³aæ pod uniksem oraz pod
+.po). U¿ywa toolkitu wxWindows, wiêc mo¿e dzia³aæ pod Uniksem oraz pod
 Windows. Mo¿liwo¶ci programu to: obs³uga UTF-8, pod¶wietlanie rekordów
 nie przet³umaczonych i niepewnych ("fuzzy"), pod¶wietlanie odstêpów,
 przegl±darka odwo³añ, edycja nag³ówków, tworzenie nowych katalogów
