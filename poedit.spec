@@ -8,6 +8,7 @@ Release:	0.5
 License:	BSD
 Group:		Applications/Editors
 Source0:	http://dl.sf.net/%{name}/%{name}-%{version}.tar.bz2
+# Source0-md5:	3af089d08f4492468faac487680ff7e2
 Source1:	%{name}.desktop
 Source2:	%{name}.png
 Patch0:		%{name}-system_libs.patch
