@@ -1,20 +1,18 @@
 Summary:	Gettext catalogs editor
 Summary(pl):	Edytor katalogów gettexta
 Name:		poedit
-Version:	1.1.9
-Release:	2
+Version:	1.2.1
+Release:	1
 License:	BSD
 Group:		Applications/Editors
-Source0:	ftp://ftp.sourceforge.net/pub/sourceforge/%{name}/%{name}-%{version}.tar.bz2
+Source0:	http://dl.sf.net/%{name}/%{name}-%{version}.tar.bz2
 Source1:	%{name}.desktop
 Source2:	%{name}.png
-Patch0:		%{name}-wxwin-2.3.1.patch
 URL:		http://poedit.sourceforge.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	gettext-devel
-BuildRequires:	gtk+-devel >= 1.2.6
-BuildRequires:	wxGTK-devel >= 2.3.2-5
+BuildRequires:	gtk+2-devel
+BuildRequires:	wxGTK2-unicode-devel
 Requires:	gettext
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -38,35 +36,35 @@ uaktualnianie istniej±cych z plików ¼ród³owych przez jedno klikniêcie.
 
 %prep
 %setup -q
-%patch0 -p1
 
 %build
-rm -f missing
-%{__gettextize}
-%{__aclocal}
 %{__autoconf}
-%{__automake}
-%configure
+%configure \
+	--disable-transmem \
+	--with-wx-config=wxgtk2u-2.4-config
 %{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_pixmapsdir},%{_applnkdir}/Development}
+install -d $RPM_BUILD_ROOT{%{_pixmapsdir},%{_desktopdir}}
 
-%{__make} install -C src \
+%{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/Development
+install %{SOURCE1} $RPM_BUILD_ROOT%{_desktopdir}
 install %{SOURCE2} $RPM_BUILD_ROOT%{_pixmapsdir}
 install src/appicon.xpm $RPM_BUILD_ROOT%{_pixmapsdir}/poedit.xpm
+
+%find_lang %{name}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%files
+%files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc NEWS LICENSE README AUTHORS docs/*.html docs/img
+#%doc NEWS LICENSE README AUTHORS docs/*.html docs/img
 %attr(755,root,root) %{_bindir}/poedit
 %{_datadir}/poedit
-%{_applnkdir}/Development/*
+%{_desktopdir}/*
 %{_pixmapsdir}/*
+%{_mandir}/man1/*
