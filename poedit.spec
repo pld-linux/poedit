@@ -46,8 +46,8 @@ uaktualnianie istniej±cych z plików ¼ród³owych przez jedno klikniêcie.
 rm -f missing
 gettextize -c -f
 aclocal
-autoconf
-automake -a -c -f
+%{__autoconf}
+%{__automake}
 %configure
 %{__make}
 
