@@ -1,6 +1,7 @@
 [Desktop Entry]
 Name=poedit
 Comment=Gettext catalogs editor
+Comment[pl]=Edytor katalogów Gettexta
 Icon=poedit.png
 Exec=quadra
 Terminal=0
