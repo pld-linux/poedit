@@ -1,7 +1,8 @@
 Summary:	Gettext catalogs editor
+Summary(pl):	Edytor katalogów gettexta
 Name:		poedit
 Version:	1.1.5
-Release:	1
+Release:	2
 License:	BSD license
 Group:		Applications/Editors
 Group(de):	Applikationen/Editors
@@ -30,6 +31,14 @@ whitespaces highlighting, references browser, headers editing and can
 be used to create new catalogs or update existing catalogs from source
 code by single click.
 
+%description -l pl
+poEdit jest wieloplatformowym edytorem katalogów gettexta (plików
+.po). U¿ywa toolkitu wxWindows, wiêc mo¿e dzia³aæ pod uniksem oraz pod
+Windows. Mo¿liwo¶ci programu to: obs³uga UTF-8, pod¶wietlanie rekordów
+nie przet³umaczonych i "fuzzy", pod¶wietlanie odstêpów, przegl±darka
+odwo³añ, edycja nag³ówków, tworzenie nowych katalogów oraz
+uaktualnianie istniej±cych z plików ¼ród³owych przez jedno klikniêcie.
+
 %prep
 %setup -q
 %patch0 -p1
@@ -57,7 +66,7 @@ install src/appicon.xpm $RPM_BUILD_ROOT%{_datadir}/icons/poedit.xpm
 gzip -9nf NEWS LICENSE README AUTHORS
 
 %clean
-rm -Rf $RPM_BUILD_ROOT
+rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
