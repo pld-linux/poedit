@@ -1,18 +1,21 @@
+# TODO:
+# - install GNOME and KDE releated files (MIME files)
 Summary:	Gettext catalogs editor
 Summary(pl):	Edytor katalogów gettexta
 Name:		poedit
-Version:	1.2.1
-Release:	1
+Version:	1.2.2
+Release:	0.5
 License:	BSD
 Group:		Applications/Editors
 Source0:	http://dl.sf.net/%{name}/%{name}-%{version}.tar.bz2
 Source1:	%{name}.desktop
 Source2:	%{name}.png
+Patch0:		%{name}-system_libs.patch
 URL:		http://poedit.sourceforge.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	gtk+2-devel
-BuildRequires:	wxGTK2-unicode-devel
+BuildRequires:	wxGTK2-unicode-devel >= 2.4.0-0.8
 Requires:	gettext
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -42,7 +45,7 @@ uaktualnianie istniej±cych z plików ¼ród³owych przez jedno klikniêcie.
 %configure \
 	--disable-transmem \
 	--with-wx-config=wxgtk2u-2.4-config
-%{__make}
+%{__make} EXTRADIR="" gizmoslib="-lwx_gtk2u_gizmos-2.4" xrclib="-lwx_gtk2u_xrc-2.4" expatlib="-lexpat" 
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -53,7 +56,6 @@ install -d $RPM_BUILD_ROOT{%{_pixmapsdir},%{_desktopdir}}
 
 install %{SOURCE1} $RPM_BUILD_ROOT%{_desktopdir}
 install %{SOURCE2} $RPM_BUILD_ROOT%{_pixmapsdir}
-install src/appicon.xpm $RPM_BUILD_ROOT%{_pixmapsdir}/poedit.xpm
 
 %find_lang %{name}
 
