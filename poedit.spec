@@ -7,9 +7,11 @@ Group:		Applications/Editors
 Group(de):	Applikationen/Editors
 Group(pl):	Aplikacje/Edytory
 Group(pt):	Aplicações/Editores
-Source0:	http://prdownloads.sourcefoge.net/%{name}/%{name}-%{version}.tar.bz2
+Source0:	http://prdownloads.sourceforge.net/%{name}/%{name}-%{version}.tar.bz2
+Source1:	%{name}.desktop
+Source2:	%{name}.png
 Patch0:		%{name}-wxwin-2.3.1.patch
-URL:		http://poedit.sourceforge.net
+URL:		http://poedit.sourceforge.net/
 BuildRequires:	wxGTK-devel >= 2.3.1
 BuildRequires:	gtk+-devel >= 1.2.6
 BuildRequires:	gettext-devel
@@ -33,6 +35,7 @@ code by single click.
 %patch0 -p1
 
 %build
+rm -f missing
 gettextize -c -f
 aclocal
 autoconf
@@ -42,16 +45,14 @@ automake -a -c
 
 %install
 rm -rf $RPM_BUILD_ROOT
+install -d $RPM_BUILD_ROOT{%{_pixmapsdir},%{_applnkdir}/Development,%{_datadir}/icons}
 
-%{__make} \
-	-C src \
-	DESTDIR=$RPM_BUILD_ROOT \
-	install
+%{__make} install -C src \
+	DESTDIR=$RPM_BUILD_ROOT
 
-install -d $RPM_BUILD_ROOT/%{_pixmapsdir}
-install -d $RPM_BUILD_ROOT/%{_datadir}/icons
-install src/appicon.xpm $RPM_BUILD_ROOT/%{_pixmapsdir}/poedit.xpm
-install src/appicon.xpm $RPM_BUILD_ROOT/%{_datadir}/icons/poedit.xpm
+install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/Development
+install %{SOURCE2} $RPM_BUILD_ROOT%{_pixmapsdir}
+install src/appicon.xpm $RPM_BUILD_ROOT%{_datadir}/icons/poedit.xpm
 
 gzip -9nf NEWS LICENSE README AUTHORS
 
@@ -61,8 +62,8 @@ rm -Rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc *.gz docs/*.html docs/img
-%attr(755, root, root) %{_bindir}/poedit
-%dir %{_datadir}/poedit
-%{_datadir}/poedit/*
+%attr(755,root,root) %{_bindir}/poedit
+%{_datadir}/poedit
 %{_datadir}/icons/poedit.xpm
-%{_pixmapsdir}/poedit.xpm
+%{_applnkdir}/Development/*
+%{_pixmapsdir}/*
