@@ -2,7 +2,7 @@ Summary:	Gettext catalogs editor
 Summary(pl):	Edytor katalogów gettexta
 Name:		poedit
 Version:	1.1.5
-Release:	2
+Release:	3
 License:	BSD license
 Group:		Applications/Editors
 Source0:	http://prdownloads.sourceforge.net/%{name}/%{name}-%{version}.tar.bz2
@@ -10,7 +10,7 @@ Source1:	%{name}.desktop
 Source2:	%{name}.png
 Patch0:		%{name}-wxwin-2.3.1.patch
 URL:		http://poedit.sourceforge.net/
-BuildRequires:	wxGTK-devel >= 2.3.1
+BuildRequires:	wxGTK-devel >= 2.3.2
 BuildRequires:	gtk+-devel >= 1.2.6
 BuildRequires:	gettext-devel
 Requires:	gettext
