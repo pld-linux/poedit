@@ -3,15 +3,14 @@
 Summary:	Gettext catalogs editor
 Summary(pl):	Edytor katalogów gettexta
 Name:		poedit
-Version:	1.3.1
+Version:	1.3.2
 Release:	0.2
 License:	BSD
 Group:		Applications/Editors
-Source0:	http://dl.sourceforge.net/%{name}/%{name}-%{version}.tar.gz
-# Source0-md5:	1f654a72eea180884bd41ec36b3f5fd1
+Source0:	http://belnet.dl.sourceforge.net/sourceforge/%{name}/%{name}-%{version}.tar.gz
+# Source0-md5:	3fcf4a3b6a8b11f0b7d28fa180efdf7f
 Source1:	%{name}.desktop
 Source2:	%{name}.png
-Patch0:		%{name}-system_libs.patch
 URL:		http://poedit.sourceforge.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -42,7 +41,6 @@ klikniêcie.
 
 %prep
 %setup -q
-%patch0 -p1
 
 %build
 %{__aclocal} -I admin
