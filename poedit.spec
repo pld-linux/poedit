@@ -21,7 +21,6 @@ BuildRequires:	wxGTK2-unicode-devel >= 2.4.0-0.8
 Requires:	gettext
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-
 %description
 poEdit is cross-platform gettext catalogs (.po files) editor. It is
 built with wxWindows toolkit and can run on Unix or Windows. It aims
@@ -35,12 +34,13 @@ code by single click.
 poEdit jest wieloplatformowym edytorem katalogów gettexta (plików
 .po). U¿ywa toolkitu wxWindows, wiêc mo¿e dzia³aæ pod uniksem oraz pod
 Windows. Mo¿liwo¶ci programu to: obs³uga UTF-8, pod¶wietlanie rekordów
-nie przet³umaczonych i "fuzzy", pod¶wietlanie odstêpów, przegl±darka
-odwo³añ, edycja nag³ówków, tworzenie nowych katalogów oraz
-uaktualnianie istniej±cych z plików ¼ród³owych przez jedno klikniêcie.
+nie przet³umaczonych i niepewnych ("fuzzy"), pod¶wietlanie odstêpów,
+przegl±darka odwo³añ, edycja nag³ówków, tworzenie nowych katalogów
+oraz uaktualnianie istniej±cych z plików ¼ród³owych przez jedno
+klikniêcie.
 
 %prep
-%setup  -q
+%setup -q
 %patch0 -p1
 %patch1 -p1
 
@@ -53,7 +53,11 @@ uaktualnianie istniej±cych z plików ¼ród³owych przez jedno klikniêcie.
 	--with-wx-config=wxgtk2u-2.4-config \
 	--%{?debug:en}%{!?debug:dis}able-debug	
 
-%{__make} EXTRADIR="" gizmoslib="-lwx_gtk2u_gizmos-2.4" xrclib="-lwx_gtk2u_xrc-2.4" expatlib="-lexpat"
+%{__make} \
+	EXTRADIR="" \
+	gizmoslib="-lwx_gtk2u_gizmos-2.4" \
+	xrclib="-lwx_gtk2u_xrc-2.4" \
+	expatlib="-lexpat"
 
 %install
 rm -rf $RPM_BUILD_ROOT
