@@ -6,6 +6,6 @@ Icon=poedit.png
 Exec=quadra
 Terminal=false
 Type=Application
-Categories=Application;Development;
+Categories=GTK;Development;
 Encoding=UTF-8
 # vi: encoding=utf-8
