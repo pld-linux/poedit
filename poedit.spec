@@ -12,9 +12,9 @@ Patch0:		%{name}-wxwin-2.3.1.patch
 URL:		http://poedit.sourceforge.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	wxGTK-devel >= 2.3.2-5
-BuildRequires:	gtk+-devel >= 1.2.6
 BuildRequires:	gettext-devel
+BuildRequires:	gtk+-devel >= 1.2.6
+BuildRequires:	wxGTK-devel >= 2.3.2-5
 Requires:	gettext
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -44,7 +44,7 @@ uaktualnianie istniej±cych z plików ¼ród³owych przez jedno klikniêcie.
 
 %build
 rm -f missing
-gettextize -c -f
+%{__gettextize}
 aclocal
 %{__autoconf}
 %{__automake}
@@ -53,14 +53,14 @@ aclocal
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_pixmapsdir},%{_applnkdir}/Development,%{_datadir}/icons}
+install -d $RPM_BUILD_ROOT{%{_pixmapsdir},%{_applnkdir}/Development}
 
 %{__make} install -C src \
 	DESTDIR=$RPM_BUILD_ROOT
 
 install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/Development
 install %{SOURCE2} $RPM_BUILD_ROOT%{_pixmapsdir}
-install src/appicon.xpm $RPM_BUILD_ROOT%{_datadir}/icons/poedit.xpm
+install src/appicon.xpm $RPM_BUILD_ROOT%{_pixmapsdir}/poedit.xpm
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -70,6 +70,5 @@ rm -rf $RPM_BUILD_ROOT
 %doc NEWS LICENSE README AUTHORS docs/*.html docs/img
 %attr(755,root,root) %{_bindir}/poedit
 %{_datadir}/poedit
-%{_datadir}/icons/poedit.xpm
 %{_applnkdir}/Development/*
 %{_pixmapsdir}/*
