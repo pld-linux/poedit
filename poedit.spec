@@ -45,7 +45,7 @@ uaktualnianie istniej±cych z plików ¼ród³owych przez jedno klikniêcie.
 %build
 rm -f missing
 %{__gettextize}
-aclocal
+%{__aclocal}
 %{__autoconf}
 %{__automake}
 %configure
