@@ -16,6 +16,7 @@ URL:		http://poedit.sourceforge.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	gtk+2-devel
+BuildRequires:	gtkspell-devel
 BuildRequires:	wxGTK2-unicode-devel >= 2.4.0-0.8
 BuildRequires:	zip
 Requires:	gettext
@@ -44,9 +45,9 @@ klikniêcie.
 %patch0 -p1
 
 %build
-#%{__aclocal}
-#%{__autoconf}
-#%{__automake}
+%{__aclocal} -I admin
+%{__autoconf}
+%{__automake}
 %configure \
 	--disable-transmem \
 	--with-wx-config=wxgtk2u-2.4-config \
@@ -63,6 +64,7 @@ rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_pixmapsdir},%{_desktopdir},%{_datadir}/mime-info/}
 
 %{__make} install \
+	EXTRADIR="" \
 	DESTDIR=$RPM_BUILD_ROOT
 
 install %{SOURCE1} $RPM_BUILD_ROOT%{_desktopdir}
