@@ -38,10 +38,13 @@ odwo³añ, edycja nag³ówków, tworzenie nowych katalogów oraz
 uaktualnianie istniej±cych z plików ¼ród³owych przez jedno klikniêcie.
 
 %prep
-%setup -q
+%setup  -q
+%patch0 -p1
 
 %build
+%{__aclocal}
 %{__autoconf}
+%{__automake}
 %configure \
 	--disable-transmem \
 	--with-wx-config=wxgtk2u-2.4-config
