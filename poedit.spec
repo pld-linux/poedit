@@ -4,7 +4,7 @@ Summary:	Gettext catalogs editor
 Summary(pl):	Edytor katalogów gettexta
 Name:		poedit
 Version:	1.2.4
-Release:	0.1
+Release:	0.2
 License:	BSD
 Group:		Applications/Editors
 Source0:	http://dl.sourceforge.net/%{name}/%{name}-%{version}.tar.bz2
