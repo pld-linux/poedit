@@ -7,4 +7,5 @@ Exec=quadra
 Terminal=0
 Type=Application
 Categories=Application;Development;
+Encoding=UTF-8
 # vi: encoding=utf-8
