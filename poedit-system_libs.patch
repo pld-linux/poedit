@@ -1,0 +1,30 @@
+--- poedit-1.2.2/src/Makefile.am.wiget	Tue Apr  1 16:55:43 2003
++++ poedit-1.2.2/src/Makefile.am	Sat May 10 12:59:01 2003
+@@ -28,8 +28,12 @@
+         --include-dir $(srcdir) @RC_WX_INCLUDES@ \
+         --define __WIN32__ --define __WIN95__ --define __GNUWIN32__
+ 
++gizmoslib=-L../extras/wx-contrib/src/gizmos -lmy_gizmos
++expatlib=-L../extras/wx-contrib/src/xrc/expat -lmy_expat
++xrclib=-L../extras/wx-contrib/src/xrc -lmy_xrc
++
+ poedit_LDADD = $(RESOURCE_FILES) \
+-               -L../extras/wx-contrib/src/gizmos \
+-               -L../extras/wx-contrib/src/xrc \
+-               -L../extras/wx-contrib/src/xrc/expat \
+-               -lmy_xrc -lmy_gizmos -lmy_expat $(POEDIT_WX_LIBS)
++               $(gizmoslib) \
++			   $(xrclib) \
++			   $(expatlib) \
++               $(POEDIT_WX_LIBS)
+--- poedit-1.2.2/Makefile.am.wiget	Sat May 10 12:53:51 2003
++++ poedit-1.2.2/Makefile.am	Sat May 10 13:00:30 2003
+@@ -1,3 +1,7 @@
+ 
+-SUBDIRS = extras src docs install locales
++EXTRADIR = extra
++
++SUBDIRS = $(EXTRADIR) src docs install locales
++
++DIST_SUBDIRS = extra src docs install locales
+ 
