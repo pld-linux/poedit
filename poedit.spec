@@ -3,16 +3,15 @@
 Summary:	Gettext catalogs editor
 Summary(pl):	Edytor katalogów gettexta
 Name:		poedit
-Version:	1.2.4
-Release:	0.2
+Version:	1.3.1
+Release:	0.1
 License:	BSD
 Group:		Applications/Editors
-Source0:	http://dl.sourceforge.net/%{name}/%{name}-%{version}.tar.bz2
-# Source0-md5:	24935b35ddb32c90fef4d0dee7a44a61
+Source0:	http://dl.sourceforge.net/%{name}/%{name}-%{version}.tar.gz
+# Source0-md5:	1f654a72eea180884bd41ec36b3f5fd1
 Source1:	%{name}.desktop
 Source2:	%{name}.png
 Patch0:		%{name}-system_libs.patch
-Patch1:		%{name}-DESTDIR.patch
 URL:		http://poedit.sourceforge.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -43,12 +42,11 @@ klikniêcie.
 %prep
 %setup -q
 %patch0 -p1
-%patch1 -p1
 
 %build
-%{__aclocal}
-%{__autoconf}
-%{__automake}
+#%{__aclocal}
+#%{__autoconf}
+#%{__automake}
 %configure \
 	--disable-transmem \
 	--with-wx-config=wxgtk2u-2.4-config \
@@ -62,7 +60,7 @@ klikniêcie.
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_pixmapsdir},%{_desktopdir}}
+install -d $RPM_BUILD_ROOT{%{_pixmapsdir},%{_desktopdir},%{_datadir}/mime-info/}
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
@@ -80,7 +78,7 @@ rm -rf $RPM_BUILD_ROOT
 #%doc NEWS LICENSE README AUTHORS docs/*.html docs/img
 %attr(755,root,root) %{_bindir}/poedit
 %{_datadir}/poedit
-%{_datadir}/mime-info/%{name}*
+#%{_datadir}/mime-info/%{name}*
 %{_desktopdir}/*
 %{_pixmapsdir}/*
 %{_mandir}/man1/*
