@@ -7,7 +7,7 @@ Version:	1.3.2
 Release:	0.2
 License:	BSD
 Group:		Applications/Editors
-Source0:	http://belnet.dl.sourceforge.net/sourceforge/%{name}/%{name}-%{version}.tar.gz
+Source0:	http://dl.sourceforge.net/sourceforge/%{name}/%{name}-%{version}.tar.gz
 # Source0-md5:	3fcf4a3b6a8b11f0b7d28fa180efdf7f
 Source1:	%{name}.desktop
 Source2:	%{name}.png
