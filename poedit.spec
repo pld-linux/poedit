@@ -3,12 +3,12 @@
 Summary:	Gettext catalogs editor
 Summary(pl):	Edytor katalogów gettexta
 Name:		poedit
-Version:	1.2.3
+Version:	1.2.4
 Release:	0.1
 License:	BSD
 Group:		Applications/Editors
 Source0:	http://dl.sourceforge.net/%{name}/%{name}-%{version}.tar.bz2
-# Source0-md5:	625227ea0627a3206e05e9075d5c6ca6
+# Source0-md5:	24935b35ddb32c90fef4d0dee7a44a61
 Source1:	%{name}.desktop
 Source2:	%{name}.png
 Patch0:		%{name}-system_libs.patch
@@ -50,7 +50,9 @@ uaktualnianie istniej±cych z plików ¼ród³owych przez jedno klikniêcie.
 %{__automake}
 %configure \
 	--disable-transmem \
-	--with-wx-config=wxgtk2u-2.4-config
+	--with-wx-config=wxgtk2u-2.4-config \
+	--%{?debug:en}%{!?debug:dis}able-debug	
+
 %{__make} EXTRADIR="" gizmoslib="-lwx_gtk2u_gizmos-2.4" xrclib="-lwx_gtk2u_xrc-2.4" expatlib="-lexpat"
 
 %install
@@ -73,6 +75,7 @@ rm -rf $RPM_BUILD_ROOT
 #%doc NEWS LICENSE README AUTHORS docs/*.html docs/img
 %attr(755,root,root) %{_bindir}/poedit
 %{_datadir}/poedit
+%{_datadir}/mime-info/%{name}*
 %{_desktopdir}/*
 %{_pixmapsdir}/*
 %{_mandir}/man1/*
