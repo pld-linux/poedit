@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=poedit
+Comment=Gettext catalogs editor
+Icon=poedit.png
+Exec=quadra
+Terminal=0
+Type=Application
+# vi: encoding=utf-8
