@@ -45,7 +45,7 @@ rm -f missing
 gettextize -c -f
 aclocal
 autoconf
-automake -a -c
+automake -a -c -f
 %configure
 %{__make}
 
