@@ -1,7 +1,7 @@
 Summary:	Gettext catalogs editor
 Summary(pl):	Edytor katalogów gettexta
 Name:		poedit
-Version:	1.1.8
+Version:	1.1.9
 Release:	2
 License:	BSD
 Group:		Applications/Editors
