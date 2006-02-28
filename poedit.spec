@@ -51,7 +51,7 @@ klikniêcie.
 %configure \
 	--disable-transmem \
 	--with-wx-config=wxgtk2u-2.4-config \
-	--%{?debug:en}%{!?debug:dis}able-debug	
+	--%{?debug:en}%{!?debug:dis}able-debug
 
 %{__make} \
 	EXTRADIR="" \
