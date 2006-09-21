@@ -17,7 +17,7 @@ BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	gtk+2-devel
 BuildRequires:	gtkspell-devel
-BuildRequires:	wxGTK2-unicode-devel >= 2.4.0-0.8
+BuildRequires:	wxGTK2-unicode-devel >= 2.6.0
 BuildRequires:	zip
 Requires:	gettext
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -50,13 +50,13 @@ klikniêcie.
 %{__automake}
 %configure \
 	--disable-transmem \
-	--with-wx-config=wxgtk2u-2.4-config \
+	--with-wx-config=wx-gtk2-unicode-config \
 	--%{?debug:en}%{!?debug:dis}able-debug
 
 %{__make} \
 	EXTRADIR="" \
-	gizmoslib="-lwx_gtk2u_gizmos-2.4" \
-	xrclib="-lwx_gtk2u_xrc-2.4" \
+	gizmoslib="-lwx_gtk2u_gizmos-2.6" \
+	xrclib="-lwx_gtk2u_xrc-2.6" \
 	expatlib="-lexpat"
 
 %install
