@@ -82,6 +82,6 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/poedit
 %{_datadir}/poedit
 %{_datadir}/mime-info/%{name}*
-%{_desktopdir}/*
+%{_desktopdir}/*.desktop
 %{_pixmapsdir}/*
 %{_mandir}/man1/*
