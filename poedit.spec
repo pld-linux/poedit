@@ -1,7 +1,7 @@
 # TODO:
 # - install GNOME and KDE releated files (MIME files)
 Summary:	Gettext catalogs editor
-Summary(pl):	Edytor katalogów gettexta
+Summary(pl.UTF-8):   Edytor katalogÃ³w gettexta
 Name:		poedit
 Version:	1.3.2
 Release:	0.2
@@ -31,14 +31,14 @@ whitespaces highlighting, references browser, headers editing and can
 be used to create new catalogs or update existing catalogs from source
 code by single click.
 
-%description -l pl
-poEdit jest wieloplatformowym edytorem katalogów gettexta (plików
-.po). U¿ywa toolkitu wxWindows, wiêc mo¿e dzia³aæ pod Uniksem oraz pod
-Windows. Mo¿liwo¶ci programu to: obs³uga UTF-8, pod¶wietlanie rekordów
-nie przet³umaczonych i niepewnych ("fuzzy"), pod¶wietlanie odstêpów,
-przegl±darka odwo³añ, edycja nag³ówków, tworzenie nowych katalogów
-oraz uaktualnianie istniej±cych z plików ¼ród³owych przez jedno
-klikniêcie.
+%description -l pl.UTF-8
+poEdit jest wieloplatformowym edytorem katalogÃ³w gettexta (plikÃ³w
+.po). UÅ¼ywa toolkitu wxWindows, wiÄ™c moÅ¼e dziaÅ‚aÄ‡ pod Uniksem oraz pod
+Windows. MoÅ¼liwoÅ›ci programu to: obsÅ‚uga UTF-8, podÅ›wietlanie rekordÃ³w
+nie przetÅ‚umaczonych i niepewnych ("fuzzy"), podÅ›wietlanie odstÄ™pÃ³w,
+przeglÄ…darka odwoÅ‚aÅ„, edycja nagÅ‚Ã³wkÃ³w, tworzenie nowych katalogÃ³w
+oraz uaktualnianie istniejÄ…cych z plikÃ³w ÅºrÃ³dÅ‚owych przez jedno
+klikniÄ™cie.
 
 %prep
 %setup -q
