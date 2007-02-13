@@ -1,7 +1,7 @@
 # TODO:
 # - install GNOME and KDE releated files (MIME files)
 Summary:	Gettext catalogs editor
-Summary(pl.UTF-8):   Edytor katalogów gettexta
+Summary(pl.UTF-8):	Edytor katalogów gettexta
 Name:		poedit
 Version:	1.3.2
 Release:	0.2
