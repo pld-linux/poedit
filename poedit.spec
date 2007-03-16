@@ -56,7 +56,6 @@ rm -f ast.{p,m}o
 rm -f es_PR.{p,m}o
 
 %build
-%{__gettextize}
 %{__aclocal} -I admin
 %{__autoconf}
 %{__automake}
