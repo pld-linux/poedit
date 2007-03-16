@@ -51,9 +51,8 @@ mv pt{_PT,}.po
 mv pt{_PT,}.mo
 mv sq{_AL,}.po
 mv sq{_AL,}.mo
-# NOTE: ast,es_PR dirs not in glibc
+# NOTE: ast dirs not in glibc
 rm -f ast.{p,m}o
-rm -f es_PR.{p,m}o
 
 %build
 %{__aclocal} -I admin
