@@ -42,7 +42,21 @@ kliknięcie.
 %prep
 %setup -q
 
+cd locales
+mv af{_ZA,}.po
+mv af{_ZA,}.mo
+mv fa{_IR,}.po
+mv fa{_IR,}.mo
+mv pt{_PT,}.po
+mv pt{_PT,}.mo
+mv sq{_AL,}.po
+mv sq{_AL,}.mo
+# NOTE: ast,es_PR dirs not in glibc
+rm -f ast.{p,m}o
+rm -f es_PR.{p,m}o
+
 %build
+%{__gettextize}
 %{__aclocal} -I admin
 %{__autoconf}
 %{__automake}
