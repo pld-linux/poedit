@@ -65,7 +65,7 @@ install -d $RPM_BUILD_ROOT{%{_pixmapsdir},%{_desktopdir},%{_datadir}/mime-info/}
 
 install %{SOURCE1} $RPM_BUILD_ROOT%{_desktopdir}
 install %{SOURCE2} $RPM_BUILD_ROOT%{_pixmapsdir}
-install install/poedit.{mime,keys} $RPM_BUILD_ROOT%{_datadir}/mime-info/
+#install install/poedit.{mime,keys} $RPM_BUILD_ROOT%{_datadir}/mime-info/
 
 %find_lang %{name}
 
@@ -77,7 +77,11 @@ rm -rf $RPM_BUILD_ROOT
 #%doc NEWS LICENSE README AUTHORS docs/*.html docs/img
 %attr(755,root,root) %{_bindir}/poedit
 %{_datadir}/poedit
-%{_datadir}/mime-info/%{name}*
+#{_datadir}/mime-info/%{name}*
 %{_desktopdir}/*.desktop
 %{_pixmapsdir}/*
+%{_iconsdir}/hicolor/16x16/apps/poedit.png
+%{_iconsdir}/hicolor/32x32/apps/poedit.png
+%{_iconsdir}/hicolor/48x48/apps/poedit.png
+%{_iconsdir}/hicolor/scalable/apps/poedit.svg
 %{_mandir}/man1/*
