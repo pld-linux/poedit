@@ -11,6 +11,7 @@ Source0:	http://dl.sourceforge.net/poedit/%{name}-%{version}.tar.gz
 # Source0-md5:	01bab36f3065daf9dcddb5dedd7c7143
 Source1:	%{name}.desktop
 Source2:	%{name}.png
+Patch0:		%{name}-locale_names.patch
 URL:		http://poedit.sourceforge.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -41,6 +42,7 @@ kliknięcie.
 
 %prep
 %setup -q
+%patch0 -p1
 
 cd locales
 mv af{_ZA,}.po
