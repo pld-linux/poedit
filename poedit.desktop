@@ -2,10 +2,9 @@
 Name=poedit
 Comment=Gettext catalogs editor
 Comment[pl]=Edytor katalogów Gettexta
-Icon=poedit.png
+Icon=poedit
 Exec=poedit
 Terminal=false
 Type=Application
 Categories=GTK;Development;Translation;
-Encoding=UTF-8
 # vi: encoding=utf-8
