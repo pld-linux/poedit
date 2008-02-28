@@ -1,24 +1,27 @@
-# TODO:
-# - install GNOME and KDE releated files (MIME files)
 Summary:	Gettext catalogs editor
 Summary(pl.UTF-8):	Edytor katalogów gettexta
 Name:		poedit
 Version:	1.3.9
-Release:	0.1
-License:	BSD
-Group:		Applications/Editors
+Release:	1
+License:	MIT
+Group:		X11/Applications/Editors
 Source0:	http://dl.sourceforge.net/poedit/%{name}-%{version}.tar.gz
 # Source0-md5:	2e2b921c9684f1bd9dba2535d97bd34e
-Source1:	%{name}.desktop
-Source2:	%{name}.png
 Patch0:		%{name}-locale_names.patch
+Patch1:		%{name}-desktop.patch
 URL:		http://poedit.sourceforge.net/
-BuildRequires:	autoconf
-BuildRequires:	automake
+BuildRequires:	autoconf >= 2.59
+BuildRequires:	automake >= 1:1.9
 BuildRequires:	gtk+2-devel
 BuildRequires:	gtkspell-devel
+BuildRequires:	pkgconfig
+BuildRequires:	rpmbuild(macros) >= 1.311
 BuildRequires:	wxGTK2-unicode-devel >= 2.6.0
+BuildRequires:	wxWidgets-utils
 BuildRequires:	zip
+Requires(post,postun):	desktop-file-utils
+Requires(post,postun):	gtk+2
+Requires(post,postun):	hicolor-icon-theme
 Requires:	gettext
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -43,6 +46,7 @@ kliknięcie.
 %prep
 %setup -q
 %patch0 -p1
+%patch1 -p1
 
 cd locales
 mv af{_ZA,}.po
@@ -69,31 +73,31 @@ mv sq{_AL,}.mo
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_pixmapsdir},%{_desktopdir},%{_datadir}/mime-info/}
 
 %{__make} install \
 	EXTRADIR="" \
 	DESTDIR=$RPM_BUILD_ROOT
-
-install %{SOURCE1} $RPM_BUILD_ROOT%{_desktopdir}
-install %{SOURCE2} $RPM_BUILD_ROOT%{_pixmapsdir}
-#install install/poedit.{mime,keys} $RPM_BUILD_ROOT%{_datadir}/mime-info/
 
 %find_lang %{name}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
+%post
+%update_desktop_database_post
+%update_icon_cache hicolor
+
+%postun
+%update_desktop_database_postun
+%update_icon_cache hicolor
+
 %files -f %{name}.lang
 %defattr(644,root,root,755)
-#%doc NEWS LICENSE README AUTHORS docs/*.html docs/img
+%doc AUTHORS COPYING NEWS README TODO
 %attr(755,root,root) %{_bindir}/poedit
 %{_datadir}/poedit
-#{_datadir}/mime-info/%{name}*
-%{_desktopdir}/*.desktop
-%{_pixmapsdir}/*
-%{_iconsdir}/hicolor/16x16/apps/poedit.png
-%{_iconsdir}/hicolor/32x32/apps/poedit.png
-%{_iconsdir}/hicolor/48x48/apps/poedit.png
-%{_iconsdir}/hicolor/scalable/apps/poedit.svg
-%{_mandir}/man1/*
+%{_desktopdir}/poedit.desktop
+%{_pixmapsdir}/poedit.png
+%{_iconsdir}/hicolor/*/*/poedit.png
+%{_iconsdir}/hicolor/*/*/poedit.svg
+%{_mandir}/man1/poedit.1*
