@@ -1,12 +1,12 @@
 Summary:	Gettext catalogs editor
 Summary(pl.UTF-8):	Edytor katalogów gettexta
 Name:		poedit
-Version:	1.3.9
+Version:	1.4
 Release:	1
 License:	MIT
 Group:		X11/Applications/Editors
 Source0:	http://dl.sourceforge.net/poedit/%{name}-%{version}.tar.gz
-# Source0-md5:	2e2b921c9684f1bd9dba2535d97bd34e
+# Source0-md5:	5198a30796af69830692b7e9e6fdbf64
 Patch0:		%{name}-locale_names.patch
 Patch1:		%{name}-desktop.patch
 URL:		http://poedit.sourceforge.net/
