@@ -1,12 +1,12 @@
 Summary:	Gettext catalogs editor
 Summary(pl.UTF-8):	Edytor katalogów gettexta
 Name:		poedit
-Version:	1.4
+Version:	1.4.1
 Release:	1
 License:	MIT
 Group:		X11/Applications/Editors
 Source0:	http://dl.sourceforge.net/poedit/%{name}-%{version}.tar.gz
-# Source0-md5:	5198a30796af69830692b7e9e6fdbf64
+# Source0-md5:	0dd46519c590e1213864562169d79b46
 Patch0:		%{name}-locale_names.patch
 Patch1:		%{name}-desktop.patch
 URL:		http://poedit.sourceforge.net/
@@ -16,7 +16,7 @@ BuildRequires:	gtk+2-devel
 BuildRequires:	gtkspell-devel
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.311
-BuildRequires:	wxGTK2-unicode-devel >= 2.6.0
+BuildRequires:	wxGTK2-unicode-devel >= 2.8.0
 BuildRequires:	wxWidgets-utils
 BuildRequires:	zip
 Requires(post,postun):	desktop-file-utils
