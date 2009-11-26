@@ -1,14 +1,13 @@
 Summary:	Gettext catalogs editor
 Summary(pl.UTF-8):	Edytor katalogów gettexta
 Name:		poedit
-Version:	1.4.2
+Version:	1.4.3
 Release:	1
 License:	MIT
 Group:		X11/Applications/Editors
 Source0:	http://dl.sourceforge.net/poedit/%{name}-%{version}.tar.gz
-# Source0-md5:	5aca5ed4c8c81e0f10efb20ac3a191ac
-Patch0:		%{name}-locale_names.patch
-Patch1:		%{name}-desktop.patch
+# Source0-md5:	8b3f6350287db3f3271cb0534ad4e244
+Patch0:		%{name}-desktop.patch
 URL:		http://poedit.sourceforge.net/
 BuildRequires:	autoconf >= 2.59
 BuildRequires:	automake >= 1:1.9
@@ -46,17 +45,6 @@ kliknięcie.
 %prep
 %setup -q
 %patch0 -p1
-%patch1 -p1
-
-cd locales
-mv af{_ZA,}.po
-mv af{_ZA,}.mo
-mv fa{_IR,}.po
-mv fa{_IR,}.mo
-mv pt{_PT,}.po
-mv pt{_PT,}.mo
-mv sq{_AL,}.po
-mv sq{_AL,}.mo
 
 %build
 %{__aclocal} -I admin
@@ -77,6 +65,14 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	EXTRADIR="" \
 	DESTDIR=$RPM_BUILD_ROOT
+
+# fix/update locale names
+install -d $RPM_BUILD_ROOT%{_datadir}/locale/{af,fa,pt,sq}/LC_MESSAGES
+mv -f $RPM_BUILD_ROOT%{_datadir}/locale/{af_ZA/LC_MESSAGES/poedit.mo,af/LC_MESSAGES/poedit.mo}
+mv -f $RPM_BUILD_ROOT%{_datadir}/locale/{fa_IR/LC_MESSAGES/poedit.mo,fa/LC_MESSAGES/poedit.mo}
+mv -f $RPM_BUILD_ROOT%{_datadir}/locale/{pt_PT/LC_MESSAGES/poedit.mo,pt/LC_MESSAGES/poedit.mo}
+mv -f $RPM_BUILD_ROOT%{_datadir}/locale/{sq_AL/LC_MESSAGES/poedit.mo,sq/LC_MESSAGES/poedit.mo}
+
 
 %find_lang %{name}
 
