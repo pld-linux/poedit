@@ -17,7 +17,6 @@ BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.311
 BuildRequires:	wxGTK2-unicode-devel >= 2.8.0
 BuildRequires:	wxWidgets-utils
-BuildRequires:	zip
 Requires(post,postun):	desktop-file-utils
 Requires(post,postun):	gtk+2
 Requires(post,postun):	hicolor-icon-theme
