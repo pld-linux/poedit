@@ -1,21 +1,22 @@
 Summary:	Gettext catalogs editor
 Summary(pl.UTF-8):	Edytor katalogów gettexta
 Name:		poedit
-Version:	1.4.6.1
-Release:	3
+Version:	3.3.2
+Release:	1
 License:	MIT
 Group:		X11/Applications/Editors
-Source0:	http://downloads.sourceforge.net/poedit/%{name}-%{version}.tar.gz
-# Source0-md5:	c63ffd991b1a6085ef356a6922356e0a
-Patch0:		%{name}-desktop.patch
-URL:		http://poedit.sourceforge.net/
+Source0:	https://github.com/vslavik/poedit/releases/download/v%{version}-oss/%{name}-%{version}.tar.gz
+# Source0-md5:	83b18a3e983c9444b31f1132a5039819
+URL:		https://poedit.net/
 BuildRequires:	autoconf >= 2.59
 BuildRequires:	automake >= 1:1.9
-BuildRequires:	gtk+2-devel
-BuildRequires:	gtkspell-devel
+BuildRequires:	boost-devel
+BuildRequires:	gtk+3-devel
+BuildRequires:	gtkspell3-devel
+BuildRequires:	lucene++-devel >= 3.0.5
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.311
-BuildRequires:	wxGTK2-unicode-devel >= 2.8.0
+BuildRequires:	wxGTK3-unicode-devel >= 3.0.3
 BuildRequires:	wxWidgets-utils
 Requires(post,postun):	desktop-file-utils
 Requires(post,postun):	gtk-update-icon-cache
@@ -43,35 +44,23 @@ kliknięcie.
 
 %prep
 %setup -q
-%patch0 -p1
 
 %build
-%{__aclocal} -I admin
-%{__autoconf}
-%{__automake}
 %configure \
-	--disable-transmem \
-	--with-wx-config=wx-gtk2-unicode-config \
+	--with-wx-config=wx-gtk3-unicode-config \
 	--%{?debug:en}%{!?debug:dis}able-debug
 
-%{__make} \
-	EXTRADIR="" \
-	expatlib="-lexpat"
+%{__make} V=1
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%{__make} install \
-	EXTRADIR="" \
+%{__make} install V=1 \
 	DESTDIR=$RPM_BUILD_ROOT
 
 # fix/update locale names
-install -d $RPM_BUILD_ROOT%{_datadir}/locale/{af,fa,pt,sq}/LC_MESSAGES
-mv -f $RPM_BUILD_ROOT%{_datadir}/locale/{af_ZA/LC_MESSAGES/poedit.mo,af/LC_MESSAGES/poedit.mo}
-mv -f $RPM_BUILD_ROOT%{_datadir}/locale/{fa_IR/LC_MESSAGES/poedit.mo,fa/LC_MESSAGES/poedit.mo}
-mv -f $RPM_BUILD_ROOT%{_datadir}/locale/{pt_PT/LC_MESSAGES/poedit.mo,pt/LC_MESSAGES/poedit.mo}
-mv -f $RPM_BUILD_ROOT%{_datadir}/locale/{sq_AL/LC_MESSAGES/poedit.mo,sq/LC_MESSAGES/poedit.mo}
-
+%{__rm} -r $RPM_BUILD_ROOT%{_localedir}/co
+%{__mv} $RPM_BUILD_ROOT%{_localedir}/pt{_PT,}
 
 %find_lang %{name}
 
@@ -88,11 +77,12 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc AUTHORS COPYING NEWS README TODO
+%doc AUTHORS COPYING NEWS README.md
 %attr(755,root,root) %{_bindir}/poedit
 %{_datadir}/poedit
-%{_desktopdir}/poedit.desktop
-%{_pixmapsdir}/poedit.png
-%{_iconsdir}/hicolor/*/*/poedit.png
-%{_iconsdir}/hicolor/*/*/poedit.svg
+%{_desktopdir}/net.poedit.Poedit.desktop
+%{_desktopdir}/net.poedit.PoeditURI.desktop
+%{_metainfodir}/net.poedit.Poedit.appdata.xml
+%{_iconsdir}/hicolor/*/*/net.poedit.Poedit.png
+%{_iconsdir}/hicolor/*/*/net.poedit.Poedit.svg
 %{_mandir}/man1/poedit.1*
