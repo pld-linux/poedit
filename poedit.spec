@@ -2,7 +2,7 @@ Summary:	Gettext catalogs editor
 Summary(pl.UTF-8):	Edytor katalogów gettexta
 Name:		poedit
 Version:	3.3.2
-Release:	1
+Release:	2
 License:	MIT
 Group:		X11/Applications/Editors
 Source0:	https://github.com/vslavik/poedit/releases/download/v%{version}-oss/%{name}-%{version}.tar.gz
